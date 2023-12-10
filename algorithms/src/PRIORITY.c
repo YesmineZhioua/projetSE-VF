@@ -3,7 +3,7 @@
 void priority(char configFile[]){
    struct node *processesList = getProcessesListFromFile(configFile);
    printProcessTable(processesList);
-   bubbleSortByTwoIndexes(processesList, 1, 3, true); // Sort List by Ta & Priority to get First process to run
+   bubbleSortByTwoIndexes(processesList, 1, 3, true); 
    sortByTwoIndexes(processesList, 1, 3, true);
    addIdleNodes(processesList, "PRIORITY");
    printGanttChart(processesList, "PRIORITY");

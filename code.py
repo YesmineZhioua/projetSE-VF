@@ -15,7 +15,6 @@ def create():
         endTE = int(windows.endTE.text())
         startPR = int(windows.startPR.text())
         endPR = int(windows.endPR.text())
-        # Generate random processes
         processes = []
         for i in range(1, nbProcess + 1):
             ta = random.randint(startTA, endTA)
@@ -23,8 +22,7 @@ def create():
             pr = random.randint(startPR, endPR)
             processes.append(f'P{i}:{ta}:{te}:{pr}')
 
-            # Write processes to process.txt
-            with open('process.txt', 'w') as file:
+            with open('processes.txt', 'w') as file:
                 file.write('\n'.join(processes))
                 windows.errMsg.setText("")
                 windows.msg.setText("created successfully!")

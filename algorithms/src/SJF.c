@@ -5,7 +5,7 @@ void sjf(char configFile[]){
    struct node *processesList = getProcessesListFromFile(configFile);
    
    printProcessTable(processesList);
-   bubbleSortByTwoIndexes(processesList, 1, 2, false); // Sort List by Ta & Te to get First process to run
+   bubbleSortByTwoIndexes(processesList, 1, 2, false); 
    sortByTwoIndexes(processesList, 1, 2, false);
    addIdleNodes(processesList,"SJF");
    printGanttChart(processesList, "SJF");

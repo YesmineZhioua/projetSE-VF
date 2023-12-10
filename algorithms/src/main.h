@@ -10,7 +10,7 @@ struct node {
    struct node *next;
 };
  
-// The queue, front stores the front node of LL and end stores the last node of LL
+
 struct Queue {
    struct node *front, *end;
 };
@@ -126,22 +126,22 @@ while (tmp) {
 
     int start = atoi(tmp->data[1]); 
     int end = prev_end + atoi(tmp->data[2]); 
-    for (int i = 0; i < finish; i++) { // start from 0 instead of 1
+    for (int i = 0; i < finish; i++) { 
         if (i == 0  && start !=i ){
             fputc('P', fp); 
             i++;
             }
         else if (i == prev_end)
-            fputc('E', fp); // the process starts running at the finish time of the previous process
+            fputc('E', fp); 
         else if (i < start )
-            fputc('P', fp); // the process is ready
+            fputc('P', fp); 
         else if (i >= start && i < prev_end)
-            fputc('A', fp); // the process is waiting
+            fputc('A', fp); 
         else if (i >= prev_end && i < end)
-            fputc('E', fp); // the process is running
+            fputc('E', fp); 
         else
-            fputc('T', fp); // the process is finished
-        fputc('\t', fp); // write a tab character
+            fputc('T', fp);
+        fputc('\t', fp); 
     }
 
 
@@ -160,11 +160,11 @@ void printGanttChart(struct node *head, char *algorithmName){
    tmp1 = tmp2 = tmp3 = tmp4 = head;
    struct winsize terminalSize;
    ioctl(STDOUT_FILENO, TIOCGWINSZ, &terminalSize);
-   int finish; // used to count nb of col in Gantt diagram
-   int finish2 = atoi(head->data[1]); // to print under each prcoess
+   int finish; 
+   int finish2 = atoi(head->data[1]); 
    while(tmp1){
       printf(" +");
-      finish = 1; // reset finish 
+      finish = 1; 
       while(tmp1){
          if(finish > 1 && finish + atoi(tmp1->data[2])*2 + 4 > terminalSize.ws_col)
             break;
@@ -176,7 +176,7 @@ void printGanttChart(struct node *head, char *algorithmName){
       }
       printf("\n |");
       finish = 1;
-      // printing process id in the middle
+    
       while(tmp2) {
          if(finish > 1 && finish + atoi(tmp2->data[2])*2 + 4 >= terminalSize.ws_col)
             break;
@@ -189,7 +189,7 @@ void printGanttChart(struct node *head, char *algorithmName){
       }
       printf("\n +");
       finish = 1;
-      // printing bottom bar
+     
       while(tmp3){
          if(finish > 1 && finish + atoi(tmp3->data[2])*2 + 4 > terminalSize.ws_col)
             break;
@@ -199,7 +199,6 @@ void printGanttChart(struct node *head, char *algorithmName){
          tmp3 = tmp3->next;
       }
       printf("\n ");
-      // printing the time line
       printf("%d", finish2);
       finish = 1;
       while(tmp4){
@@ -210,9 +209,9 @@ void printGanttChart(struct node *head, char *algorithmName){
          if(finish2 > 9){
             int t = (finish2 + 1) / 10;
             int i = 0;
-            do{ // backsapces for the number of digits of finish
+            do{ 
                t /= 10;
-               printf("\b"); // backspace : remove 1 space
+               printf("\b"); 
                ++i;
             }while(t != 0);
          }
@@ -232,7 +231,7 @@ int min(int a, int b){
 
 void addIdleNodes(struct node *head, char *algorithmName){
    struct node *tmp = head->next, *prev = head;
-   int finish = atoi(head->data[1]) + atoi(head->data[2]); // TA + TE
+   int finish = atoi(head->data[1]) + atoi(head->data[2]);
    int count=0;
    int totalTurnaroundTime = 0;
    while(tmp){
@@ -267,7 +266,6 @@ void addIdleNodes(struct node *head, char *algorithmName){
    }
    if (strcmp(algorithmName, "FIFO") == 0  || strcmp(algorithmName, "PRIORITY") == 0 || strcmp(algorithmName, "SJF") == 0){
    double averageTurnaroundTime = (double)totalTurnaroundTime / (count+1);
-   // printf("Count: %d\n", count);
    printf("Average Turnaround Time: %.2lf\n", averageTurnaroundTime);
    }
 }
@@ -275,17 +273,16 @@ void addIdleNodes(struct node *head, char *algorithmName){
 void sortByTA(struct node *start){
    int swapped;
    struct node *ptr1;
-   struct node *lptr = NULL; //last pointer
-   /* Checking for empty list */
+   struct node *lptr = NULL; 
    if (start == NULL)
       return;
    do{
       swapped = 0;
       ptr1 = start;
       while (ptr1->next != lptr){
-         int a = atoi(ptr1->data[1]); //convertir en entier.
+         int a = atoi(ptr1->data[1]); 
          int b = atoi(ptr1->next->data[1]);
-         // comparing ascendante
+     
          if (a > b){ 
                swap(ptr1, ptr1->next);
                swapped = 1;
@@ -297,7 +294,6 @@ void sortByTA(struct node *start){
 }
   
   
-/* function to swap data of two nodes a and b*/
 void swap(struct node *a, struct node *b){
    for(int i=0; i < 4; i++){
       char *temp = strdup(a->data[i]);
@@ -308,7 +304,6 @@ void swap(struct node *a, struct node *b){
 
 
 struct node* inverseLinkedList(struct node *node){
-   //condition d'arret
    if(node->next == NULL)
       return node;
    struct node *node1 = inverseLinkedList(node->next);
@@ -318,15 +313,14 @@ struct node* inverseLinkedList(struct node *node){
 }
 
 char *remove_white_spaces(char *str){
-   char *tmp = strdup(str); //creates a copy of the string pointed to, and returns a pointer to the new copy
+   char *tmp = strdup(str);
 	int i = 0, j = 0;
 	while (tmp[i]){
 		if (tmp[i] != ' ')
           tmp[j++] = tmp[i];
 		i++;
 	}
-	tmp[j] = '\0'; // null terminator
-   //in C, strings are represented as arrays of characters, and the end of a string is marked by a null terminator
+	tmp[j] = '\0'; 
 	return tmp;
 }
 
@@ -350,16 +344,16 @@ struct node *getProcessesListFromFile(char *configFile){
       else if(remove_white_spaces(line)[0] == '\n')
          continue;
       struct node *newNode = (struct node*)malloc(sizeof(struct node));
-      char *token = strtok(line, ":"); //splitting string into smaller tokenS(liste chainé kol data thezek lelli mbaadha) based on ':'
+      char *token = strtok(line, ":"); 
       int i=0;
       while(token != NULL && i<4){
-         token[strcspn(token, "\n")] = 0; // deleting \n from the end of the token
-         newNode->data[i] = strdup(token); //duplicating the data and storing it
-         token = strtok(NULL, ":"); //advances the token pointer to the next token in the string.
+         token[strcspn(token, "\n")] = 0; 
+         newNode->data[i] = strdup(token);
+         token = strtok(NULL, ":"); 
          i++;
       }
       newNode->data[4] = strdup(newNode->data[1]);
-      newNode->next = processesLinkedList; //kenek fehem l linked list taw tefhemha ;)
+      newNode->next = processesLinkedList; 
       processesLinkedList = newNode;
    }
    fclose(openedFile);
@@ -368,9 +362,6 @@ struct node *getProcessesListFromFile(char *configFile){
       exit(1);
    }
 
-   //la liste chainé ajoute chaque process dans la liste au début 
-   //==> premier process est placé le dernier dans la liste 
-   //==> il faut l'inverser 
    processesLinkedList = inverseLinkedList(processesLinkedList); 
    return processesLinkedList;
 }
@@ -380,7 +371,7 @@ void bubbleSortByTwoIndexes(struct node *start, int comparisonIndex1, int compar
    int swapped;
    struct node *ptr1;
    struct node *lptr = NULL;
-   /* Checking for empty list */
+   
    if (start == NULL)
       return;
    do{
@@ -441,7 +432,6 @@ struct Queue *createQueueFromLinkedList(struct node *head){
 }
 
 
-// A utility function to create a new linked list node.
 struct node* newNode(struct node *dataNode){
     struct node* temp = (struct node*)malloc(sizeof(struct node));
     temp->data[0] = strdup(dataNode->data[0]);
@@ -453,7 +443,6 @@ struct node* newNode(struct node *dataNode){
     return temp;
 }
 
-// A utility function to create an empty queue
 struct Queue *createQueue(){
     struct Queue* q = (struct Queue*)malloc(sizeof(struct Queue));
     q->front = q->end = NULL;
@@ -461,11 +450,9 @@ struct Queue *createQueue(){
 }
 
 
-// The function to add a key k to q
 void enQueue(struct Queue *q, struct node *element){
-   // Create a new LL node
+
    struct node *temp = newNode(element);
-   // If queue is empty, then new node is front and end both
    if (q->end == NULL) {
       q->front = q->end = temp;
       return;
@@ -489,24 +476,18 @@ void enQueue(struct Queue *q, struct node *element){
    prev->next = temp;
 }
  
-// Function to remove element from given queue q
 void deQueue(struct Queue* q){
-   // If queue is empty, return NULL.
    if (q->front == NULL)
       return;
-   // Store previous front and move front one node ahead
    struct node* temp = q->front;
-   //struct node *ret = q->front;
    q->front = q->front->next;
 
-   // If front becomes NULL, then change end also as NULL
    if (q->front == NULL)
       q->end = NULL;
    free(temp);
 }
 
 
-//Function to create a new node with process information
 struct ProcessInfo* newProcessInfo(char *processName, int turnaroundTime, int waitingTime , int startTime, int endTime, float rotation_moy,
     float attent_moy) {
     struct ProcessInfo* info = (struct ProcessInfo*)malloc(sizeof(struct ProcessInfo));

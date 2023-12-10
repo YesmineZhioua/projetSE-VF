@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <limits.h>
 
-// Function to get a valid value within a specified range
 int getValidValue(const char *prompt, int minValue, int maxValue) {
     int value;
     do {
@@ -17,7 +16,7 @@ int getValidValue(const char *prompt, int minValue, int maxValue) {
 }
 
 int main() {
-    int maxr = 10; // Default randint 10
+    int maxr = 10; 
 
     int debutArrivee = getValidValue("Entrez le début de l'intervalle pour les valeurs de temps d'arrivée : ", 0, INT_MAX);
     int finArrivee = getValidValue("Entrez le fin de l'intervalle pour les valeurs de temps d'arrivée : ", debutArrivee + 1, INT_MAX);

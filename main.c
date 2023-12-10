@@ -16,12 +16,11 @@ struct algorithm
 int getNumberOfAlgorithms(DIR *algorithms)
 {
     int nb = 0;
-    struct dirent *dir; //une structure utilisée pour représenter les entrées de répertoire
-//  a comme propriété l file name wel type mte3ou
+    struct dirent *dir; 
 
-    while ((dir = readdir(algorithms)) != NULL) //readdir pour lire le contenu d'une directory
+    while ((dir = readdir(algorithms)) != NULL)
     {
-        if (dir->d_type != DT_DIR) //ken l type taa dir mahouch directory wa9tha ++nb_file
+        if (dir->d_type != DT_DIR) 
             nb++;
     }
     return nb;
@@ -31,11 +30,10 @@ struct algorithm *getListOfSchedulingAlgorithms(int numberOfAlgorithms)
 {
     DIR *algorithms;
     struct dirent *dir;
-    algorithms = opendir(ALGORITHMS_FOLDER); // pointer to files in src
+    algorithms = opendir(ALGORITHMS_FOLDER); 
     printf("Choose a scheduling algorithm : \n");
     struct algorithm *algorithmChoices;
     
-    // réserver la taille du algorithmChoices qui est un tableau d'algorithm
     algorithmChoices = (struct algorithm *)malloc(numberOfAlgorithms * sizeof(struct algorithm));
     if (algorithms)
     {
@@ -46,13 +44,13 @@ struct algorithm *getListOfSchedulingAlgorithms(int numberOfAlgorithms)
                 continue;
             struct algorithm algo;
             algo.n = i;
-            strcpy(algo.name, dir->d_name); //copier une chaîne de caractères 
+            strcpy(algo.name, dir->d_name);
             char location[500] = "";
-            strcat(location, ALGORITHMS_FOLDER); //concaténation ./algorithms/build/
+            strcat(location, ALGORITHMS_FOLDER);
             strcat(location, dir->d_name);
             strcpy(algo.location, location);
             algorithmChoices[i] = algo;
-            printf("\t%d - %s\n", i, dir->d_name); // printing the menu
+            printf("\t%d - %s\n", i, dir->d_name); 
             i++;
         }
         closedir(algorithms);
@@ -82,14 +80,14 @@ int main(int argc, char *argv[])
         printf("Please enter processes file as an argument.\n");
         exit(0);
     }
-    DIR *algorithmsFiles = opendir(ALGORITHMS_FOLDER); // pointer on ./build directory
+    DIR *algorithmsFiles = opendir(ALGORITHMS_FOLDER);
     int nbOfAlgorithms = getNumberOfAlgorithms(algorithmsFiles);
     struct algorithm *algorithmChoices = getListOfSchedulingAlgorithms(nbOfAlgorithms);
     int choice = getUserChoice(nbOfAlgorithms);
     char command[500] = "";
-    strcat(command, algorithmChoices[choice].location); //./algorithms/build/RR 
+    strcat(command, algorithmChoices[choice].location); 
     char configFile[100] = " ";
-    strcat(configFile, argv[1]); // processes.txt
-    strcat(command, configFile); // ./algorithms/build/RR  processes.txt
-    system(command); //execution
+    strcat(configFile, argv[1]); 
+    strcat(command, configFile);
+    system(command);
 }

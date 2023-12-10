@@ -1,10 +1,10 @@
-P9	P	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
-P6	P	P	P	P	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
-P2	P	P	P	P	P	P	A	E	E	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
-P4	P	P	P	P	P	P	A	A	A	A	A	A	E	E	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
-P10	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	E	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
-P1	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
-P3	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	T	T	T	T	T	T	T	T	T	T	T	
-P8	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	T	T	T	T	T	T	T	T	
-P5	P	P	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	E	T	T	T	T	
-P7	P	P	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	E	
+P5	P	E	E	E	E	E	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
+P6	P	A	A	A	A	A	A	A	A	E	E	E	E	E	E	E	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
+P4	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	E	E	E	E	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
+P8	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
+P10	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	E	E	E	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	T	
+P1	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	E	E	E	E	E	T	T	T	T	T	T	T	T	
+P7	P	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	T	T	T	T	T	T	T	
+P9	P	P	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	T	T	T	T	T	T	
+P3	P	P	P	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	T	T	T	T	T	
+P2	P	P	P	P	P	P	P	P	P	P	P	P	P	P	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	A	E	E	E	E	E	
